@@ -1,0 +1,37 @@
+<div class="d-flex flex-row justify-content-center align-items-center bg-dark" style="min-height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center bg-white rounded p-4">
+        <form (ngSubmit)="updateEmployee()" [formGroup]="editForm" class="w-100">
+            <h1 class="text-center fw-bold mb-4">Employee Details</h1>
+
+            <!-- @for(item of allemployee; track $index)  { -->
+
+            <!-- Name Input -->
+            <div class="mb-3">
+                <input name="username" formControlName="username" type="text" class="form-control" value={{allemployee.username}} />
+            </div>
+
+            <!-- Email Input -->
+            <div class="mb-3">
+                <input name="email" formControlName="email" type="email" id="email" class="form-control" value={{allemployee.email}} />
+            </div>
+            <!-- age Input -->
+            <div class="mb-3">
+                <input name="age" formControlName="age" type="text" class="form-control" value={{allemployee.age}} />
+            </div>
+
+            <!-- Status Dropdown -->
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select formControlName="status" id="status" class="form-select" name="status" value="{{allemployee.status}}">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <!-- } -->
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

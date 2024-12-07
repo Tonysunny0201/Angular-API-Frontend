@@ -1,0 +1,64 @@
+
+<div style="height: 100vh; " class="d-flex justify-content-center align-items-center bg-dark">
+    <div class="d-flex justify-content-center align-items-center bg-dark">
+      <div class="bg-light rounded p-4">
+        <!-- Header Section -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="text-center fw-bold">EMPLOYEE DETAILS</h3>
+          <span>
+            <button routerLink="/add" class="btn btn-primary">Add Employee</button>
+          </span>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Filter
+            </button>
+            <ul class="dropdown-menu">
+              <li><a (click)="filter('active')" class="dropdown-item">active</a></li>
+              <li><a (click)="filter('inactive')" class="dropdown-item">inactive</a></li>
+            </ul>
+            <!-- <div>
+              <button (click)="filterItems('active')" class="btn btn-primary">Show Active Items</button>
+              <button (click)="filterItems('inactive')" class="btn btn-secondary">Show Inactive Items</button>
+            </div> -->
+          </div>
+        </div>
+  
+        <!-- Table Section -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>UserName</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Replace with *ngFor in Angular -->
+            @if (allEmployee.length>0) {
+             @for (item of allEmployee; track $index) {
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.status}}</td>
+                    <td>
+                      <button [routerLink]="['/edit',item.id]" class="btn btn-success me-2">Edit</button>
+                      <button (click)="deleteEmployee(item.id)" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+             }
+            }@else {
+                <tr>
+                    <td colspan="5" class="text-center">
+                      No employee details found.
+                    </td>
+                </tr>
+             }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

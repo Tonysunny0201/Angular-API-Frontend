@@ -1,0 +1,41 @@
+<div class="d-flex flex-row justify-content-center align-items-center bg-dark" style="min-height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center bg-white rounded p-4">
+      <form class="w-100" (ngSubmit)="add()" [formGroup]="addForm">
+        <h1 class="text-center fw-bold mb-4">Employee Details</h1>
+  
+        <!-- ID Input -->
+        <div class="mb-3">
+          <input type="text" id="id" formControlName="id" class="form-control" placeholder="Enter ID" />
+        </div>
+  
+        <!-- Name Input -->
+        <div class="mb-3">
+          <input type="text" id="username" formControlName="username" class="form-control" placeholder="Enter UserName" />
+        </div>
+
+        <!-- Age Input -->
+        <div class="mb-3">
+            <input type="text" id="age" formControlName="age" class="form-control" placeholder="Enter Age" />
+          </div>
+  
+        <!-- Email Input -->
+        <div class="mb-3">
+          <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter Email" />
+        </div>
+  
+        <!-- Status Dropdown -->
+        <div class="mb-3">
+          <label for="status" class="form-label">Status</label>
+          <select id="status" class="form-select" formControlName="status">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+  
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
